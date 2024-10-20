@@ -72,6 +72,7 @@ class App extends React.Component<{}, State> {
               id="itemId"
               type="number"
               min="0"
+              value={itemWidth}
               className="customizing__input customizing__input--width"
               onChange={e => {
                 const value: number = +e.target.value;
@@ -88,6 +89,7 @@ class App extends React.Component<{}, State> {
               id="frameId"
               type="number"
               min="0"
+              value={frameSize}
               className="customizing__input customizing__input--frame"
               onChange={e => {
                 const value: number = +e.target.value;
@@ -104,6 +106,7 @@ class App extends React.Component<{}, State> {
               id="stepId"
               type="number"
               min="0"
+              value={step}
               className="customizing__input customizing__input--step"
               onChange={e => {
                 const value: number = +e.target.value;
@@ -120,6 +123,7 @@ class App extends React.Component<{}, State> {
               id="durationId"
               type="number"
               min="0"
+              value={animationDuration}
               className="customizing__input customizing__input--duration"
               onChange={e => {
                 const value: number = +e.target.value;
