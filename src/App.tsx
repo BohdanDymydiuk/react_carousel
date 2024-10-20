@@ -4,6 +4,10 @@ import Carousel from './components/Carousel';
 
 interface State {
   images: string[];
+  itemWidth: number;
+  frameSize: number;
+  step: number;
+  animationDuration: number;
 }
 
 class App extends React.Component<{}, State> {
@@ -69,7 +73,11 @@ class App extends React.Component<{}, State> {
               type="number"
               min="0"
               className="customizing__input customizing__input--width"
-              onChange={e => this.setItemWidth(+e.target.value)}
+              onChange={e => {
+                const value: number = +e.target.value;
+
+                this.setItemWidth(value);
+              }}
             />
           </div>
           <div className="customizing__block">
@@ -81,7 +89,11 @@ class App extends React.Component<{}, State> {
               type="number"
               min="0"
               className="customizing__input customizing__input--frame"
-              onChange={e => this.setFrameSize(+e.target.value)}
+              onChange={e => {
+                const value: number = +e.target.value;
+
+                this.setFrameSize(value);
+              }}
             />
           </div>
           <div className="customizing__block">
@@ -93,7 +105,11 @@ class App extends React.Component<{}, State> {
               type="number"
               min="0"
               className="customizing__input customizing__input--step"
-              onChange={e => this.setStep(+e.target.value)}
+              onChange={e => {
+                const value: number = +e.target.value;
+
+                this.setStep(value);
+              }}
             />
           </div>
           <div className="customizing__block">
@@ -105,7 +121,11 @@ class App extends React.Component<{}, State> {
               type="number"
               min="0"
               className="customizing__input customizing__input--duration"
-              onChange={e => this.setAnimationDuration(+e.target.value)}
+              onChange={e => {
+                const value: number = +e.target.value;
+
+                this.setAnimationDuration(value);
+              }}
             />
           </div>
         </div>

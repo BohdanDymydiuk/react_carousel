@@ -11,8 +11,8 @@ type Props = {
   infinite: boolean;
 };
 
-let scrollIndex = 0;
-const gap = 20;
+let scrollIndex: number = 0;
+const gap: number = 20;
 
 const Carousel: React.FC<Props> = ({
   images,
@@ -83,7 +83,7 @@ const Carousel: React.FC<Props> = ({
             {images.map((item, index) => {
               return (
                 <li
-                  key={item}
+                  key={`${index}-${item}`}
                   style={{
                     transform: translateX,
                     transitionDuration: `${animationDuration}ms`,
