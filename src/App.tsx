@@ -20,17 +20,95 @@ class App extends React.Component<{}, State> {
       './img/9.png',
       './img/10.png',
     ],
+    itemWidth: 130,
+    frameSize: 3,
+    step: 3,
+    animationDuration: 1000,
   };
 
+  setItemWidth(value: number): void {
+    this.setState(prevState => ({ ...prevState, itemWidth: value }));
+  }
+
+  setFrameSize(value: number): void {
+    this.setState(prevState => ({ ...prevState, frameSize: value }));
+  }
+
+  setStep(value: number): void {
+    this.setState(prevState => ({ ...prevState, step: value }));
+  }
+
+  setAnimationDuration(value: number): void {
+    this.setState(prevState => ({ ...prevState, animationDuration: value }));
+  }
+
   render() {
-    const { images } = this.state;
+    const { images, itemWidth, frameSize, step, animationDuration } =
+      this.state;
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>Carousel with {images.length} images</h1>
+        <h1 data-cy="title">Carousel with {images.length} images</h1>
 
-        <Carousel />
+        <Carousel
+          images={images}
+          step={step}
+          frameSize={frameSize}
+          itemWidth={itemWidth}
+          animationDuration={animationDuration}
+          infinite={false}
+        />
+
+        <div className="customizing">
+          <div className="customizing__block">
+            <label htmlFor="itemId" className="customizing__label">
+              item width:
+            </label>
+            <input
+              id="itemId"
+              type="number"
+              min="0"
+              className="customizing__input customizing__input--width"
+              onChange={e => this.setItemWidth(+e.target.value)}
+            />
+          </div>
+          <div className="customizing__block">
+            <label htmlFor="frameId" className="customizing__label">
+              frame size:
+            </label>
+            <input
+              id="frameId"
+              type="number"
+              min="0"
+              className="customizing__input customizing__input--frame"
+              onChange={e => this.setFrameSize(+e.target.value)}
+            />
+          </div>
+          <div className="customizing__block">
+            <label htmlFor="stepId" className="customizing__label">
+              scroll step:
+            </label>
+            <input
+              id="stepId"
+              type="number"
+              min="0"
+              className="customizing__input customizing__input--step"
+              onChange={e => this.setStep(+e.target.value)}
+            />
+          </div>
+          <div className="customizing__block">
+            <label htmlFor="durationId" className="customizing__label">
+              duration:
+            </label>
+            <input
+              id="durationId"
+              type="number"
+              min="0"
+              className="customizing__input customizing__input--duration"
+              onChange={e => this.setAnimationDuration(+e.target.value)}
+            />
+          </div>
+        </div>
       </div>
     );
   }
